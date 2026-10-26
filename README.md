@@ -6,14 +6,16 @@
 ![Vite](https://img.shields.io/badge/Vite-6.2.0-646cff?style=for-the-badge&logo=vite&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES_Modules-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)
 ![Node Test Runner](https://img.shields.io/badge/Tests-17%20Passed-39ff14?style=for-the-badge&logo=node.js&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20PWA-ff007a?style=for-the-badge)
+[![Netlify](https://img.shields.io/badge/LIVE%20DEMO-starhop--games.netlify.app-00ad9f?style=for-the-badge&logo=netlify&logoColor=white)](https://starhop-games.netlify.app/)
 ![License](https://img.shields.io/badge/License-MIT-ffd700?style=for-the-badge)
+
+### 🕹️ [👉 MAINKAN LANGSUNG DI BROWSER: starhop-games.netlify.app 👈](https://starhop-games.netlify.app/)
 
 **STARHOP** adalah game arcade retro platformer 2D bertema eksplorasi luar angkasa yang dibangun menggunakan **Phaser 3**, **Vite**, **Modern JavaScript (ES Modules)**, dan **HTML5/CSS3**.
 
 Jelajahi 10 sektor pulau melayang kosmik, hindari jebakan mematikan, injak drone patroli, picu kemampuan aktif aksesoris unik, manfaatkan *power-up*, dan tembus portal antardimensi!
 
-[Fitur Utama](#-fitur-utama) • [Panduan Kontrol](#-panduan-kontrol) • [Karakter & Sinergi](#-karakter--sinergi-hangar) • [Instalasi](#-cara-menjalankan-proyek) • [Deploy ke GitHub Pages](#-deploy-ke-github-pages)
+[🎮 Mainkan Game Online](https://starhop-games.netlify.app/) • [Fitur Utama](#-fitur-utama) • [Panduan Kontrol](#-panduan-kontrol) • [Karakter & Sinergi](#-karakter--sinergi-hangar) • [Instalasi](#-cara-menjalankan-proyek) • [Live Demo & Deploy](#-live-demo--deployment)
 
 </div>
 
@@ -182,71 +184,22 @@ npm run preview
 
 ---
 
-## 🌐 Deploy ke GitHub Pages
+## 🌐 Live Demo & Deployment
 
-Anda dapat mempublikasikan game ini secara gratis ke **GitHub Pages** dengan salah satu cara berikut:
+Game ini sudah di-deploy dan dapat langsung dimainkan secara online tanpa instalasi di:
+👉 **[https://starhop-games.netlify.app/](https://starhop-games.netlify.app/)**
 
-### Opsi A: Menggunakan GitHub Actions (Otomatis & Direkomendasikan)
-1. Buat file `.github/workflows/deploy.yml`:
-```yaml
-name: Deploy to GitHub Pages
+### Deploy ke Netlify / Vercel
+1. Hubungkan repository GitHub ini (`https://github.com/ItsMeSyauqi/STARHOP`) ke akun **Netlify** atau **Vercel**.
+2. Masukkan pengaturan build berikut:
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `dist`
+3. Setiap kali Anda melakukan `git push` ke branch `main`, versi terbaru akan langsung otomatis ter-deploy ke Netlify.
 
-on:
-  push:
-    branches: [ main ]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
-jobs:
-  build-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npm test
-
-      - name: Build project
-        run: npm run build
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-```
-2. Buka repository Anda di GitHub -> Masuk ke **Settings** -> **Pages**.
-3. Di bagian **Build and deployment** -> **Source**, pilih **GitHub Actions**.
-4. Lakukan `git push` ke branch `main`, dan game Anda akan otomatis tayang!
-
-> [!NOTE]
-> Jika repository Anda berada di subpath (misal: `https://username.github.io/starhop/`), pastikan menambahkan `base: './'` pada `vite.config.js` agar aset dimuat relatif secara sempurna.
+### Atau Deploy ke GitHub Pages (Opsional)
+Jika ingin menggunakan GitHub Pages bawaan repository, aktifkan via **GitHub Actions**:
+1. Buat file `.github/workflows/deploy.yml` dengan langkah build `npm run build` dan upload folder `dist/`.
+2. Buka repository -> **Settings** -> **Pages** -> Source: **GitHub Actions**.
 
 ---
 
