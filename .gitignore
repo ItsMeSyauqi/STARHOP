@@ -1,0 +1,31 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Diagnostic / IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Archives
+*.zip
+*.tar.gz
+
+# Environment
+.env
+.env.*
+!.env.example
